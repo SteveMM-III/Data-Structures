@@ -14,25 +14,23 @@ return elements in Last In First Out order.
 # array method
 class Stack:
     def __init__(self):
-        self.size = 0
+        #self.size = 0
         self.storage = []
 
     def __len__(self):
-        return self.size
+        return len( self.storage )
         
 
     def push(self, value):
+        #self.size += 1
         self.storage.append( value )
-        self.size += 1
 
     def pop(self):
-        # check len
-        val = None
-        if self.size > 0:
-            val = self.storage[ -1 ]
-            del self.storage[ -1 ]
-            self.size -= 1
-        return val
+        if len( self.storage ) > 0:
+            #self.size -= 1 
+            return self.storage.pop()
+        return None
+
 '''
 
 # LinkedList method
@@ -52,4 +50,5 @@ class Stack:
     def pop( self ):
         if self.size > 0:
             self.size -= 1
-        return self.storage.remove_tail()
+            return self.storage.remove_tail()
+        return None
