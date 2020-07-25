@@ -139,22 +139,22 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
-        if node is self.tail:
-            if self.tail.prev:
-                temp = self.tail.prev
-                self.tail.delete()
-                self.tail = temp
-            else:
-                self.tail.delete()
-                self.head = None
-                self.tail = None
-        elif node is self.head:
+        if node is self.head:
             if self.head.next:
                 temp = self.head.next
                 self.head.delete()
                 self.head = temp
             else:
                 self.head.delete()
+                self.head = None
+                self.tail = None
+        elif node is self.tail:
+            if self.tail.prev:
+                temp = self.tail.prev
+                self.tail.delete()
+                self.tail = temp
+            else:
+                self.tail.delete()
                 self.head = None
                 self.tail = None
         else:
