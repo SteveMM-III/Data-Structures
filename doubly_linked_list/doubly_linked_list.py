@@ -55,7 +55,6 @@ class DoublyLinkedList:
             self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
-        
         self.length += 1
         
     """
@@ -89,7 +88,6 @@ class DoublyLinkedList:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
-
         self.length += 1
             
     """
@@ -159,7 +157,6 @@ class DoublyLinkedList:
                 self.tail = None
         else:
             node.delete()
-
         self.length -= 1
 
     """
@@ -170,11 +167,11 @@ class DoublyLinkedList:
         # if list empty
         if not self.head:
             return None
-        # check values
+        # not empty
         else:
             nxt = self.head
             mx  = nxt.value
-
+            # check values
             while nxt:
                 test = nxt.value
                 if test > mx:
