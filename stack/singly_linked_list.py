@@ -27,8 +27,9 @@ class LinkedList:
             self.head = new_node
             self.tail = new_node
         # list not empty
-        new_node.set_next( self.head )
-        self.head = new_node
+        else:
+            new_node.set_next( self.head )
+            self.head = new_node
 
     
     def add_to_tail( self, value ):
@@ -103,7 +104,7 @@ class LinkedList:
         # check values
         else:
             nxt = self.head
-            mx  = 0
+            mx  = nxt.get_value()
 
             while nxt:
                 test = nxt.get_value()
