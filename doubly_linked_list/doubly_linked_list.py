@@ -53,8 +53,8 @@ class DoublyLinkedList:
         # list not empty
         else:
             self.head.prev = new_node
-            new_node.next = self.head
-            self.head = new_node
+            new_node.next  = self.head
+            self.head      = new_node
 
         # increase length
         self.length += 1
@@ -89,10 +89,10 @@ class DoublyLinkedList:
             self.tail = new_node
         # list not empty
         else:
-            new_node.prev = self.tail
+            new_node.prev  = self.tail
             self.tail.next = new_node
-            self.tail = new_node
-            
+            self.tail      = new_node
+
         # increase length
         self.length += 1
             
