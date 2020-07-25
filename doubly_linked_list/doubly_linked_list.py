@@ -55,6 +55,8 @@ class DoublyLinkedList:
             self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
+
+        # increase length
         self.length += 1
         
     """
@@ -63,8 +65,10 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
+        # check for head
         if not self.head:
             return None
+        # not head
         else:
             val = self.head.value
             self.delete( self.head )
@@ -88,6 +92,8 @@ class DoublyLinkedList:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
+            
+        # increase length
         self.length += 1
             
     """
@@ -96,24 +102,29 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
+        # check for tail
         if not self.tail:
             return None
+        # not tail
         else:
             val = self.tail.value
             self.delete( self.tail )
             return val
 
-            
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
+        # check for head
         if node is self.head:
             return
+
         val = node.value
+        # check for tail
         if node is self.tail:
             self.remove_from_tail()
+        # not tail
         else:
             self.delete( node )
         self.add_to_head( val )
@@ -123,11 +134,15 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
+        # check for tail
         if node is self.tail:
             return
+
         val = node.value
+        #check for head
         if node is self.head:
             self.remove_from_head()
+        # not head
         else:
             self.delete( node )
         self.add_to_tail( val )
@@ -137,6 +152,7 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
+        # check for head
         if node is self.head:
             if self.head.next:
                 temp = self.head.next
@@ -146,6 +162,7 @@ class DoublyLinkedList:
                 self.head.delete()
                 self.head = None
                 self.tail = None
+        #check for tail
         elif node is self.tail:
             if self.tail.prev:
                 temp = self.tail.prev
@@ -155,8 +172,11 @@ class DoublyLinkedList:
                 self.tail.delete()
                 self.head = None
                 self.tail = None
+        # not head or tail
         else:
             node.delete()
+        
+        # decrease length
         self.length -= 1
 
     """
