@@ -36,12 +36,12 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        if self.value is target:
+        if self.value == target:
             return True
         else:
             node = self.check_node( self, target )
             while node:
-                if node.value is target:
+                if node.value == target:
                     return True
                 else:
                     node = self.check_node( node, target )
@@ -50,8 +50,10 @@ class BSTNode:
     # Return the maximum value found in the tree
     def get_max(self):
         next_node = self.right
+
         if next_node:
             curr = next_node.value
+
             while next_node:
                 curr = next_node.value
                 next_node = next_node.right
@@ -95,7 +97,9 @@ class BSTNode:
 
         while len( que ) > 0:
             node = que.dequeue()
+
             print( node.value )
+
             if node.left:
                 que.enqueue( node.left )
             if node.right:
@@ -106,13 +110,14 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
         stack = Stack()
         stack.push( self )
 
         while len( stack ) > 0:
             node = stack.pop()
+
             print( node.value )
+
             if node.right:
                 stack.push( node.right )
             if node.left:
